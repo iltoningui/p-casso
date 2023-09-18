@@ -101,9 +101,9 @@ const sketch = (p: p5) => {
     let drawSection = new ToolboxSection(uuidv4(), "Draw", []);
 
     // Add drawing tools
-    drawSection.addTool(new Eraser(uuidv4(), 8));
+    drawSection.addTool(new Eraser(uuidv4(), 25));
     drawSection.addTool(new Pencil(selectedUuid, 2, "#ffda00"));
-    drawSection.addTool(new SprayCan(uuidv4(), 4, "#ff0000"));
+    drawSection.addTool(new SprayCan(uuidv4(), 6, "#ff0000"));
     drawSection.addTool(new Crayon(uuidv4(), 4, "#ff0000"));
     drawSection.addTool(new Brush(uuidv4(), 10, "#ff0000"));
     

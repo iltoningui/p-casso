@@ -12,6 +12,6 @@ RUN npm run build
 FROM nginx:latest
 
 
-COPY --from=build /usr/local/app/dist/sample-angular-app /usr/share/nginx/html
+COPY --from=build /usr/local/app/dist/p-casso /usr/share/nginx/html
 
 EXPOSE 80
