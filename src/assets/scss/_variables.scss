@@ -1,0 +1,44 @@
+
+/* Typography */
+$font-family-microsoft: 'Segoe UI';
+$font-family: $font-family-microsoft;
+
+/* Cursor */ 
+$cursor-clickable: pointer;
+
+/* Buttons */ 
+
+/* Inputs */ 
+
+/* Link */ 
+
+/* Mix */ 
+
+/* Border Radius */ 
+$radius-1: 16px;
+$radius-2: 20px;
+$radius-3: 24px;
+$radius-4: 28px;
+$radius-5: 32px;
+$radius-6: 36px;
+$radius-7: 40px;
+$radius-8: 44px;
+$radius-9: 48px;
+$radius-10: 52px;
+
+/* Navbar */ 
+$height: 40px;
+
+/* Colors */ 
+$primary-blue: #0179d4;
+$primary-black: #1b1a19;
+$primary-white: #f1f1f1;
+
+
+// Menu
+$tool-main-height: 60px;
+$tool-settings-height: 20px;
+$toolbar-section-height: 20px;
+$tool-height: calc($tool-main-height + $tool-settings-height);
+$toolbar-height: calc($tool-height + $toolbar-section-height);
+$main-body-height: calc(100%);

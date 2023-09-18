@@ -1,0 +1,144 @@
+@import 'app';
+
+// Toolbar CSS Properties
+// --------------------------- //
+:host {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 25px;
+  height: 120px;
+  background-color: white;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  
+  > div:first-child {
+    padding-left: 20px;
+  }
+
+  > div {
+    .icon {
+      width: 35px;
+      height: 35px;
+    }
+  }
+}
+
+// Section part of properties
+// --------------------------- //
+.toolbar-section {
+
+  > .tools {
+    flex-wrap: nowrap;
+    gap: 5px;
+  }
+
+  > .section-name {
+    height: 20px;
+
+    // The paragraph that will display the section name
+    > p {
+      font-size: .75rem;
+      color: $primary-black;
+    }
+  }
+}
+
+
+// Properties for individual tools
+// --------------------------- //
+.toolbar-tool {
+  width: 50px;
+  gap: 2px;
+
+  > .tool {
+    width: 100%;
+    height: $tool-main-height;
+    flex: 1 0 $tool-main-height;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+
+    > svg {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
+  > div.tool-settings {
+    width: 100%;
+    height: $tool-settings-height;
+    flex: 0 0 $tool-settings-height;
+    position: relative;
+
+    > svg {
+      width: 20px;
+      height: 20px;
+      display: none;
+    }
+
+    // Styles for when the tool is selected
+    &.selected {
+      background-color: rgb(236, 236, 236);
+      
+      > svg {
+        display: inline-block!important;
+      }
+    }
+
+    // Color picker and other options
+    > .settings {
+      position: absolute;
+      top: 24px;
+      left: 0;
+      z-index: 90;
+      display: none;
+    }
+
+    
+  }
+  
+  // Styles for when the tool on hover
+  &:hover, &.settings-open {
+    > div.tool {
+      background-color: rgb(218, 218, 218);
+    }
+
+    > div.tool-settings {
+      background-color: rgb(218, 218, 218);
+      > svg {
+        display: inline-block;
+      }
+    }
+  }
+
+  // Styles for when the tool is selected
+  &.selected {
+    > .tool {
+      background-color: rgb(236, 236, 236);
+    }
+  }
+
+  // Styles for open settings
+  &.settings-open {
+    > div.tool-settings {
+      > .settings {
+        display: initial;
+      }
+    }
+  }
+}
+
+// This will server as a background cover for when the settings is open
+// So it can absorve the click events and close the settings model
+#modal-cover {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: transparent;
+  display: none;
+
+  &.settings-open {
+    display: inline-block;
+  }
+}

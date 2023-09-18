@@ -1,0 +1,53 @@
+
+<!-- Toolbar Section -->
+<div 
+    *ngFor="let section of toolbox.sections; let sectionIdx = index"
+    [id]="section.id"
+    class="toolbar-section flex-col align-center content-start gap10">
+
+  <!-- Tools will be inserted here -->
+  <div class="tools flex-row align-center content-start">
+
+    <!-- Iterating over the tools in a section -->
+    <div *ngFor="let tool of section.tools; let toolIdx = index"
+        (onSelectedTool)="selectTool(tool)"
+        class="toolbar-tool flex-col align-center content-start{{ tool.selected ? ' selected' : '' }}"
+        [id]="tool.id">
+
+      <!-- Add selected attribute to tool -->
+      <!-- Tool icon -->
+      <div class="tool flex-row content-center align-center"
+          (click)="selectTool(tool)"
+          [style.border-bottom-color]="color(tool) ? color(tool) : 'rgba(0, 0, 0, 0)'">
+
+        <svg class="icon">
+          <use [attr.xlink:href]="tool.icon" />
+        </svg>
+      </div>
+      <!-- Tool options icon -->
+      <div 
+              (click)="toggleSettings(tool.id)"
+              class="tool-settings flex-row content-center align-center{{tool.selected ? ' selected' : ''}}"
+              [style.visibility]="hasOptions(tool) ? 'visible' : 'hidden' ">
+
+        <svg class="icon"><use xlink:href="#arrow-down" /></svg>
+
+        <div class="settings">
+          <span [cpToggle]="true"
+                [cpDialogDisplay]="'inline'"
+                [cpEyeDropper]="false"
+                cpOutputFormat="rgba"
+                (colorPickerChange)="colorPickerChange(sectionIdx, toolIdx, $event)"
+                [colorPicker]="color(tool)!!"
+                class="picker-color"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Section name -->
+  <div class="section-name flex-row align-center content-center">
+    <p>{{ section.name }}</p>
+  </div>
+</div>
+
+<div id="modal-cover"></div>

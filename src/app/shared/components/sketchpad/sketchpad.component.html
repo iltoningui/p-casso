@@ -1,0 +1,10 @@
+<app-toolbar 
+    *ngIf="toolbox"
+    [toolbox]="toolbox"
+    (onUndo)="selectUndo($event)"
+    (onSelectedTool)="selectedTool($event)"
+    (onSelectSave)="save($event)"/>
+
+<div #sketchpad_container>
+  <div #sketch></div>
+</div>

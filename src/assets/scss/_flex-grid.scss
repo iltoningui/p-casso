@@ -1,0 +1,93 @@
+/* Adds the parent property for the elements with a class starting with flex */
+.flex {
+
+/* Set the direction to row for elements with the class flex-row */
+  &-row {
+    -ms-flex-direction: row;
+    flex-direction: row;   
+  }
+
+/* Set the direction to column for elements with the class flex-col */
+  &-col {
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.flex-col, .flex-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  
+  /* Justify content properties */
+  &.content-start {
+    justify-content: flex-start;
+
+  }
+  
+  &.content-center {
+    justify-content: center;
+
+  }
+  
+  &.content-stretch {
+    justify-content: stretch;
+
+  }
+  
+  /* Align items property */
+  &.align-center {
+    align-items: center;
+
+  }
+  
+  &.align-start {
+    align-items: flex-start;
+
+  }
+  
+  &.align-stretch {
+    align-items: stretch;
+
+  }
+
+  /* Self alignment properties */
+  > .self-stretch {
+    align-self: stretch;
+  }
+
+  > .self-start {
+    align-self: flex-start;
+  }
+
+
+  /* Gap properties */
+  &.gap10 {
+    gap: 10px;
+  }
+
+  &.gap20 {
+    gap: 20px;
+  }
+
+  &.gap30 {
+    gap: 30px;
+  }
+
+  // Wrap configurations
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &.wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+
+}
